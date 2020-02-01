@@ -9,7 +9,12 @@ class App {
 	public function __construct()
 	{
 		$url = $this->parseURL();
-		var_dump($url);
+		
+		if (file_exists('../app/controllers/'. ucwords($url[0]) .'.php')) {
+			$this->controller = $url[0];
+			unset($url[0]);			
+		}
+
 	}
 
 	public function parseURL()
