@@ -64,6 +64,15 @@ class Mahasiswa extends Controller {
 		}
 	}
 
+	public function cari(){
+		$data['judul'] = 'Data Mahasiswa';
+		$keyword = $_POST['keyword'];
+		$data['mhs'] = $this->model('Mahasiswa_model')->cariDataMahasiswa($keyword);
+		$this->view('templates/header',$data);
+		$this->view('mahasiswa/index',$data);
+		$this->view('templates/footer');
+	}
+
 
 
 
